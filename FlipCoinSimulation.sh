@@ -18,10 +18,24 @@ done
 
 if [ "$head" -eq 21 ] && [ "$tail" -eq 21 ]
 then
-	echo "Its a Tie"
+if [ "$head" -eq 21 ]
+	then
+		while [ "$(($head-$tail))" -gt 2 ]
+		do
+			tail=$(($tail+1))
+		done
+	else
+		while [ "$(($tail-$head))" -gt 2 ]
+		do
+			head=$(($head+1))
+		done
+	fi
 elif [ "$head" -eq 21 ]
 then
 	echo "Head won by" $(($head-$tail))
 else
 	echo "Tail won by" $(($tail-$head))
 fi
+
+echo "Final head value" $head
+echo "Final tail count" $tail

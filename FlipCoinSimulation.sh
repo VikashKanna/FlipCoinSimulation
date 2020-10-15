@@ -4,8 +4,7 @@ echo "Welcome to Flip Coin Simulation Problem"
 
 head=0;
 tail=0;
-read -p "Enter number of flip required" n
-for (( i=0; i<n; i++ ))
+while [ "$head" -lt 21 ] && [ "$tail" -lt 21 ]
 do
 
 	a=$(( RANDOM%2 ));
@@ -16,5 +15,13 @@ do
         	tail=$(($tail+1))
 	fi
 done
-echo "Number of head win" $head
-echo "Number of tail win" $tail
+
+if [ "$head" -eq 21 ] && [ "$tail" -eq 21 ]
+then
+	echo "Its a Tie"
+elif [ "$head" -eq 21 ]
+then
+	echo "Head won by" $(($head-$tail))
+else
+	echo "Tail won by" $(($tail-$head))
+fi

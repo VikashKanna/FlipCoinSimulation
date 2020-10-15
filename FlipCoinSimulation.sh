@@ -1,0 +1,3 @@
+#!/usr/local/bin/bash -x
+
+echo "Welcome to Flip Coin Simulation Problem"
